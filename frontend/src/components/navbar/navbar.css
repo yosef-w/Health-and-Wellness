@@ -1,0 +1,35 @@
+.navbarContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8rem;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbarTitle {
+    font-size: 2rem;
+    font-weight: 300;
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 1rem;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: white;
+    text-decoration: none;
+    margin-right: 1rem;
+}
