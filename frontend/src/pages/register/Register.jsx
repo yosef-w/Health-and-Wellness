@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaGithub } from "react-icons/fa"
 import { FcGoogle } from "react-icons/fc"
@@ -6,14 +6,29 @@ import "./register.css"
 
 export default function Register({ flashMessage }) {
 
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const navigate = useNavigate();
+
+
+    const handleUsernameChange = event =>  {
+        setUsername(event.target.value)};
+
+    const handleEmailChange = event => {
+        setEmail(event.target.value)};
+
+    const handlePasswordChange = event => {
+        setPassword(event.target.value)};
+    
+    const handleConfirmPassword = event => {
+        setConfirmPassword(event.target.value)};
 
     const handleRegister = event => {
         event.preventDefault();
-        // console.log(event);
-        let password = event.target.password.value;
-        let confirmPass = event.target.confirmPass.value;
-        if (password !== confirmPass){
+        console.log(event);
+        if (password !== confirmPassword) {
             flashMessage('Passwords do not match', 'warning');
         } else{
             // Make the Post Request to Flask API
@@ -23,15 +38,13 @@ export default function Register({ flashMessage }) {
             myHeaders.append('Content-Type', 'application/json');
 
             let formData = JSON.stringify({
-                email: event.target.email.value,
-                username: event.target.username.value,
-                password
+                username: username,
+                email: email,
+                password: password
             })
-
-            fetch('https://kekambas-blog-api.onrender.com/api/users', {
-                method: 'POST',
-                headers: myHeaders,
-                body: formData
+            console.log(formData);
+            fetch('https://127.0.0.1:5000/user/register', {
+                formData
             })
                 .then(res => res.json())
                 .then(data => {
@@ -54,52 +67,62 @@ export default function Register({ flashMessage }) {
                         className="col-sm-12 col-md-6 d-flex flex-column justify-content-center align-items-center"
                         id="content"
                     >
+                    <form action="" onSubmit={handleRegister}>
                         <h1 className="display-2 mb-5">Sign Up</h1>
                         <div className="form-floating">
-                            <i className="icon fa-regular fa-user" />
+                            {/* <i className="icon fa-regular fa-user" /> */}
                             <input
                                 type="text"
-                                name=""
+                                name="username"
                                 id="user"
                                 placeholder="Username"
                                 className="form-control"
+                                value={username}
+                                onChange={handleUsernameChange}
                             />
                             <label htmlFor="user">Username</label>
                         </div>
                         <div className="form-floating">
-                            <i className="icon fa-regular fa-envelope" />
+                            {/* <i className="icon fa-regular fa-envelope" /> */}
                             <input
                                 type="text"
-                                name=""
+                                name="email"
                                 id="email"
                                 placeholder="Email"
                                 className="form-control"
+                                value={email}
+                                onChange={handleEmailChange}
                             />
                             <label htmlFor="email">Email</label>
                         </div>
                         <div className="form-floating">
-                            <i className="icon fa-solid fa-lock" />
+                            {/* <i className="icon fa-solid fa-lock" /> */}
                             <input
                                 type="text"
-                                name=""
+                                name="password"
                                 id="password"
                                 placeholder="Password"
                                 className="form-control"
+                                value={password}
+                                onChange={handlePasswordChange}
                             />
                             <label htmlFor="password">Password</label>
                         </div>
                         <div className="form-floating">
-                            <i className="icon fa-solid fa-lock" />
+                            {/* <i className="icon fa-solid fa-lock" /> */}
                             <input
                                 type="text"
-                                name=""
+                                name="confirmPassword"
                                 id="password"
                                 placeholder="Password"
                                 className="form-control"
+                                value={confirmPassword}
+                                onChange={handleConfirmPassword}
                             />
-                            <label htmlFor="password">Confirm Password</label>
+                            <label htmlFor="confirmPassword">Confirm Password</label>
                         </div>
                         <button>Sign Up</button>
+                        </form>
                         <p>Or Sign Up With Social Platforms</p>
                         <div className="w-75 d-flex justify-content-between mt-4">
                             <FaFacebook size={30}/>
