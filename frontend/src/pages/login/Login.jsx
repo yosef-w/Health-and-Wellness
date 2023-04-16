@@ -16,7 +16,7 @@ export default function Login({ flashMessage, logUserIn }) {
         let myHeaders = new Headers();
         myHeaders.append('Authorization', `Basic ${btoa(stringToEncode)}`);
 
-        let response = await fetch('https://127.0.0.1:5000/user/register', {
+        let response = await fetch('https://127.0.0.1:5000/user/token', {
             method: 'POST',
             headers: myHeaders
         });
