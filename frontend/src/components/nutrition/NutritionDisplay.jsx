@@ -1,9 +1,7 @@
 import React from 'react';
 
 export default function NutritionDisplay({ responseData }) {
-    if (!responseData) {
-        return null;
-
+    
   return (
     <div>
       <div className="card" style={{ width: "10rem" }}>
@@ -31,5 +29,4 @@ export default function NutritionDisplay({ responseData }) {
       </div>
     </div>
   );
-}
 }

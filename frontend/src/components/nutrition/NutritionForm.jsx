@@ -7,7 +7,7 @@ export default function NutritionForm() {
         event.preventDefault();
         // Get the input value from the form
         const food = event.target.food.value;
-        // Call the updatePoke function from parent component to change state and rerender component
+        // Call the addFood function from parent component to change state and rerender component
         // addFood(foodData);
         // Set the input back to empty
         event.target.food.value = ''

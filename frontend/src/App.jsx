@@ -17,29 +17,8 @@ function App() {
   const [user, setUser] = useState({})
   const [foodData, setFoodData] = useState(null);
 
-    function addFood(foodData) {
-         setFoodData(foodData)}
-
-
-//   useEffect(() => {
-//     if (loggedIn){
-//         async function fetchLoggedInUser(){
-//             let myHeaders = new Headers();
-//             const token = localStorage.getItem('token');
-//             myHeaders.append('Authorization', `Bearer ${token}`);
-//             let response = await fetch('https://kekambas-blog-api.onrender.com/api/me', {
-//                 headers: myHeaders
-//             });
-//             let data = await response.json();
-//             if (data.error){
-//                 console.warn(data.error)
-//             } else {
-//                 setUser(data)
-//             }
-//         };
-//         fetchLoggedInUser();
-//     }
-// }, [loggedIn])
+function addFood(foodData) {
+    setFoodData(foodData)}
 
 function flashMessage(message, category){
     setMessage(message);
