@@ -27,7 +27,7 @@ export default function NutritionDisplay({ responseData }) {
             <a href="#" className="card-link">
               Save To Profile
             </a>
-            <a href="#" className="card-link">
+            <a href={responseData.hits[0].recipe.url} className="card-link">
               More Info
             </a>
           </div>
