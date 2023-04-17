@@ -7,6 +7,7 @@ import Login from "./pages/login/Login";
 import Symptom from "./pages/symptom/Symptom";
 import AlertMessage from "./components/AlertMessage";
 import "./App.css";
+import Nutrition from "./pages/nutrition/Nutrition";
 
 function App() {
 
@@ -14,27 +15,31 @@ function App() {
   const [message, setMessage] = useState(null);
   const [category, setCategory] = useState(null);
   const [user, setUser] = useState({})
+  const [foodData, setFoodData] = useState(null);
+
+    function addFood(foodData) {
+         setFoodData(foodData)}
 
 
-  useEffect(() => {
-    if (loggedIn){
-        async function fetchLoggedInUser(){
-            let myHeaders = new Headers();
-            const token = localStorage.getItem('token');
-            myHeaders.append('Authorization', `Bearer ${token}`);
-            let response = await fetch('https://kekambas-blog-api.onrender.com/api/me', {
-                headers: myHeaders
-            });
-            let data = await response.json();
-            if (data.error){
-                console.warn(data.error)
-            } else {
-                setUser(data)
-            }
-        };
-        fetchLoggedInUser();
-    }
-}, [loggedIn])
+//   useEffect(() => {
+//     if (loggedIn){
+//         async function fetchLoggedInUser(){
+//             let myHeaders = new Headers();
+//             const token = localStorage.getItem('token');
+//             myHeaders.append('Authorization', `Bearer ${token}`);
+//             let response = await fetch('https://kekambas-blog-api.onrender.com/api/me', {
+//                 headers: myHeaders
+//             });
+//             let data = await response.json();
+//             if (data.error){
+//                 console.warn(data.error)
+//             } else {
+//                 setUser(data)
+//             }
+//         };
+//         fetchLoggedInUser();
+//     }
+// }, [loggedIn])
 
 function flashMessage(message, category){
     setMessage(message);
@@ -64,8 +69,8 @@ function logUserOut(){
                 <Route path='/register' element={<Register flashMessage={flashMessage} />} />
                 <Route path='/login' element={<Login flashMessage={flashMessage} logUserIn={logUserIn}/>} />
                 <Route path='/symptom' element={<Symptom flashMessage={flashMessage} loggedIn={loggedIn} />} />
-                {/* <Route path='/nutition' element={<Create flashMessage={flashMessage} loggedIn={loggedIn} />} />
-                <Route path='/provider' element={<Create flashMessage={flashMessage} loggedIn={loggedIn} />} /> */}
+                <Route path='/nutrition' element={<Nutrition flashMessage={flashMessage} loggedIn={loggedIn} addFood={addFood} foodData = {foodData} />} />
+                {/* <Route path='/provider' element={<Create flashMessage={flashMessage} loggedIn={loggedIn} />} />  */}
             </Routes>
         </div>
       </>

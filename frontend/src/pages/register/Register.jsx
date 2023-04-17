@@ -43,8 +43,13 @@ export default function Register({ flashMessage }) {
                 password: password
             })
             console.log(formData);
-            fetch('https://127.0.0.1:5000/user/register', {
-                formData
+            // make a post request to the backend
+            fetch('http://127.0.0.1:5000/user/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                  },
+                body: formData
             })
                 .then(res => res.json())
                 .then(data => {
@@ -98,7 +103,7 @@ export default function Register({ flashMessage }) {
                         <div className="form-floating">
                             {/* <i className="icon fa-solid fa-lock" /> */}
                             <input
-                                type="text"
+                                type="password"
                                 name="password"
                                 id="password"
                                 placeholder="Password"
@@ -111,9 +116,9 @@ export default function Register({ flashMessage }) {
                         <div className="form-floating">
                             {/* <i className="icon fa-solid fa-lock" /> */}
                             <input
-                                type="text"
+                                type="password"
                                 name="confirmPassword"
-                                id="password"
+                                id="confirmPassword"
                                 placeholder="Password"
                                 className="form-control"
                                 value={confirmPassword}

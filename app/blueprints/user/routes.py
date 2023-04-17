@@ -29,7 +29,12 @@ def create_user():
         return {'error': 'User with that username and/or email already exists'}, 400
     # Create a new user instance with the request data
     new_user = User(username=username, email=email, password=password)
-    return new_user 
+    
+    return {
+        'id': new_user.id,
+        'username': new_user.username,
+        'email': new_user.email
+    }, 201 
 
 @bp.route('/token')
 @basic_auth.login_required
@@ -37,3 +42,11 @@ def index():
     user = basic_auth.current_user()
     token = user.get_token()
     return {'token': token, 'token_exp': user.token_expiration}
+
+# @bp.route('/register', methods=["GET"])
+# def get_register():
+#     # return all items in users
+#     users = User.query.all()
+#     if users is None:
+#         return {'error': 'No users found'}, 404
+#     return {'users': [user.to_dict() for user in users]}

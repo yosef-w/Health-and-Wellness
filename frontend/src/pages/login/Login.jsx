@@ -7,7 +7,6 @@ export default function Login({ flashMessage, logUserIn }) {
 
     async function handleLogin(event){
         event.preventDefault();
-        // console.log(event);
 
         let username = event.target.username.value;
         let password = event.target.password.value;

@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(75), nullable=False, unique=True)
     email = db.Column(db.String(75), nullable=False, unique=True)
     password = db.Column(db.String(255), nullable=False)
-    date_created = db.Column(db.DateTime, nullable=False)
+    date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     token = db.Column(db.String(32), index=True, unique=True)
     token_expiration = db.Column(db.DateTime)
 

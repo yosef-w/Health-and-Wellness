@@ -1,19 +1,33 @@
-import React from 'react'
+// import React from 'react'
+// import SymptomDisplay from '../../components/symptom/SymptomDisplay'
+// import SymptomForm from '../../components/symptom/SymptomForm'
 
-export default function Symptom() {
+// export default function Symptom() {
 
+//   const [symptomSearch, setSymptomSearch] = useState('');
+//   const [symptomObj, setSymptomObj] = useState({});
 
+//   useEffect(() => {
+//     // Define async function
+//     async function fetchData(){
+//         console.log('rendered!', pokeSearch);
+//         let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeSearch.toLowerCase()}`)
+//         if (!response.ok){
+//             console.error('There was an issue')
+//         } else {
+//             let data = await response.json();
+//             console.log(data)
+//             setPokeObj(data);
+//         };
+//     };
+//     // Execute the function
+//     fetchData();
+// }, [pokeSearch]);
   
-  return (
-    <div>
-      <form action="">
-            <h1 className="text-center">Symptoms</h1>
-            <div className="form-">
-                {/* <label htmlFor="task">Enter task</label> */}
-                <input className="form-control" type="text" name="symptom" placeholder='What Symptoms Do You Have...' />
-                <input type="submit" value="Submit" className='btn btn-outline-primary w-100 mt-3' />
-            </div>
-        </form>
-    </div>
-  )
-}
+//   return (
+//     <div>
+//       <SymptomForm />
+//       <SymptomDisplay />
+//     </div>
+//   )
+// }
