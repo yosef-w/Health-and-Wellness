@@ -23,11 +23,11 @@ export default function Nutrition() {
     <>
     <div>
       <form action="" onSubmit={handleSubmit}>
-        <h1 className="text-center">Symptoms</h1>
+        <h1 className="text-center">Nutrition</h1>
         <div className="form-group">
           {/* <label htmlFor="task">Enter task</label> */}
-          <input className="form-control" type="text" name="food" placeholder='Please Add Your Food Ingredients...' />
-          <input type="submit" value="Submit" className='btn btn-outline-primary w-100 mt-3' />
+          <input className="form-control w-50" type="text" name="food" placeholder='Please Add Your Food Ingredients...' />
+          <input type="submit" value="Submit" className='btn btn-outline-primary w-50 mt-3' />
         </div>
       </form>
     </div>
