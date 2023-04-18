@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/navbar/Navbar";
+import Navbar from "./components/constants/navbar/Navbar";
 import Home from "./pages/home/Home";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
@@ -49,7 +49,7 @@ function logUserOut(){
                 <Route path='/login' element={<Login flashMessage={flashMessage} logUserIn={logUserIn}/>} />
                 <Route path='/symptom' element={<Symptom flashMessage={flashMessage} loggedIn={loggedIn} />} />
                 <Route path='/nutrition' element={<Nutrition flashMessage={flashMessage} loggedIn={loggedIn} addFood={addFood} foodData = {foodData} />} />
-                {/* <Route path='/provider' element={<Create flashMessage={flashMessage} loggedIn={loggedIn} />} />  */}
+                {/* <Route path='/provider' element={<Provider flashMessage={flashMessage} loggedIn={loggedIn} />} />  */}
             </Routes>
         </div>
       </>
