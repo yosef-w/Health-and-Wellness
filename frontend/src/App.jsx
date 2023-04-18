@@ -8,6 +8,7 @@ import Symptom from "./pages/symptom/Symptom";
 import AlertMessage from "./components/AlertMessage";
 import "./App.css";
 import Nutrition from "./pages/nutrition/Nutrition";
+import Footer from "./components/constants/footer/Footer";
 
 function App() {
 
@@ -51,6 +52,7 @@ function logUserOut(){
                 <Route path='/nutrition' element={<Nutrition flashMessage={flashMessage} loggedIn={loggedIn} addFood={addFood} foodData = {foodData} />} />
                 {/* <Route path='/provider' element={<Provider flashMessage={flashMessage} loggedIn={loggedIn} />} />  */}
             </Routes>
+        <Footer />
         </div>
       </>
   );
