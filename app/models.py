@@ -100,3 +100,36 @@ class Symptom(db.Model):
             'symptom3': self.symptom3
         }
 
+
+class Vitals(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    first = db.Column(db.String(100), nullable=False)
+    last = db.Column(db.String(100), nullable=False)
+    age = db.Column(db.Integer, nullable=False)
+    weight = db.Column(db.Integer, nullable=False)
+    height = db.Column(db.Integer, nullable=False)
+    systolic = db.Column(db.Integer, nullable=False)
+    diastolic = db.Column(db.Integer, nullable=False)
+    activity = db.Column(db.String(100), nullable=False)
+    date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        db.session.add(self)
+        db.session.commit()
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "first": self.first,
+            "last": self.last,
+            "age": self.age,
+            "weight": self.weight,
+            "height": self.height,
+            "systolic": self.systolic,
+            "diastolic": self.diastolic,
+            "activity": self.activity,
+            "date_created": self.date_created,
+            "user_id": self.user_id,
+        }

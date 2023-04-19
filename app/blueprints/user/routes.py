@@ -2,7 +2,7 @@ from flask import request
 from app import db
 from . import bp
 from flask_login import login_user
-from app.models import User
+from app.models import User, Vitals
 
 @bp.route('/register', methods=["POST"])
 def create_user():
@@ -51,10 +51,35 @@ def login():
     token = user.get_token()
     return {'token': token}, 200
 
-# @bp.route('/register', methods=["GET"])
-# def get_register():
-#     # return all items in users
-#     users = User.query.all()
-#     if users is None:
-#         return {'error': 'No users found'}, 404
-#     return {'users': [user.to_dict() for user in users]}
+
+@bp.route('/vitals', methods=["POST"])
+def get_vitals():
+     # Check to see that the request body is JSON aka application/json content-type
+    if not request.is_json:
+        return {'error': 'Your request content-type must be application/json'}, 400
+    # Get the data from the request body
+    data = request.json
+    # Validate that all of the required fields are present
+    required_fields = ['first', 'last', 'age', 'weight', 'height', 'systolic', 'diastolic', 'activity']
+    missing_fields = []
+    for field in required_fields:
+        if field not in data:
+            missing_fields.append(field)
+    if missing_fields:
+        return {'error': f"{', '.join(missing_fields)} must be in the request body"}, 400
+    # Get the data from the request body
+    first = data.get('first')
+    last = data.get('last')
+    age = data.get('age')
+    weight = data.get('weight')
+    height = data.get('height')
+    systolic = data.get('systolic')
+    diastolic = data.get('diastolic')
+    activity = data.get('activity')
+
+    new_vitals = Vitals(first=first, last=last, age=age, weight=weight, height=height, systolic=systolic, diastolic=diastolic, activity=activity)
+    db.session.add(new_vitals)
+    db.session.commit()
+
+    
+    return new_vitals.to_dict()
