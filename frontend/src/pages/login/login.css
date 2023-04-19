@@ -1,0 +1,36 @@
+body {
+    background-color: #fff;
+  }
+
+h2 {
+    font-size: 20px;
+  }
+  
+.col-md-7 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.caption {
+    margin-right: 50px;
+}
+
+input.checkbox {
+    margin-right: 8px;
+}
+
+button {
+    width: 300px;
+    height: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background: 0 0;
+    border-radius: 8px;
+    border: 1px solid #a4f020;
+}
+
+.button:hover {
+    background: #111727;
+    border-color: #111727;
+  }

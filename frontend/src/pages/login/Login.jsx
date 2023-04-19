@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FcGoogle } from "react-icons/fc"
+// import LoginForm from '../../components/login/LoginForm';
+import LoginImageDesign from '../../components/login/LoginImageDesign';
+import './login.css'
 
 export default function Login({ flashMessage, logUserIn }) {
   const navigate = useNavigate();
@@ -50,21 +54,91 @@ export default function Login({ flashMessage, logUserIn }) {
   }
 
   return (
-    <div className='row'>
-      <div className='col'>
-        <div className='card mt-3'>
-          <div className='card-header text-center'>Log In Here!</div>
-          <div className='card-body'>
-            <form action='' onSubmit={handleLogin}>
-              <div className='form-group'>
-                <input type='text' name='username' className='form-control my-3' placeholder='Enter Username' />
-                <input type='password' name='password' className='form-control my-3' placeholder='Enter Password' />
-                <input type='submit' value='Log In' className='btn btn-success w-100' />
+    <div class="container-fluid">
+    <div class="row">
+    <div className="col-md-6 order-last order-md-first">
+      <div className="d-lg-flex half">
+        <div className="container">
+          <div className="row align-items-center justify-content-center">
+            <div className="col-md-7">
+              <h3>
+                <strong>Welcome!</strong>
+              </h3>
+              <p className="mb-4">Glad your back! Please enter your details.</p>
+              <button className="btn btn-block btn-outline-dark">
+                <FcGoogle size={30} className="mr-2"/>
+                <span>Login with Google</span>
+              </button>
+              <div
+                className="d-flex my-5"
+                style={{ justifyContent: "space-between" }}
+              >
+                <div
+                  style={{
+                    borderBottom: "1px solid rgb(238, 238, 238)",
+                    width: "45%",
+                  }}
+                />
+                <span style={{ marginTop: "-10px", marginBottom: "-10px" }}>or</span>
+                <div
+                  style={{
+                    borderBottom: "1px solid rgb(238, 238, 238)",
+                    width: "45%",
+                  }}
+                />
               </div>
-            </form>
+              <form action="#" onSubmit={handleLogin}>
+                <div className="form-group first">
+                  <input
+                    type="text"
+                    name="username"
+                    className="form-control"
+                    placeholder="Email"
+                    id="email"
+                  />
+                </div>
+                <div className="form-group last mb-3">
+                  <input
+                    type="password"
+                    name="password"
+                    className="form-control"
+                    placeholder="Password"
+                    id="password"
+                  />
+                </div>
+                <div className="d-flex mb-5 align-items-center">
+                  <label className="control control--checkbox mb-0">
+                    <input type="checkbox" defaultChecked="checked" className='checkbox'/>
+                    <span className="caption">Remember me</span>
+                    <div className="control__indicator" />
+                  </label>
+                  <span className="ml-auto">
+                    <a href="/#" className="forgot-pass">
+                      Forgot Password
+                    </a>
+                  </span>
+                </div>
+                <input
+                  type="submit"
+                  defaultValue="Log In"
+                  className="btn btn-block btn-dark"
+                />
+              </form>
+              <p className="mt-4" style={{ textAlign: "center" }}>
+                Don't have an account?
+                <a href='/register'>
+                <strong style={{ color: "black", cursor: "pointer" }}>
+                  Sign up for free
+                </strong>
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <LoginImageDesign />
+      </div>
+    </div>
   );
-}
+};
