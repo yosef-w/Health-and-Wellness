@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+.title h1 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+h5 {
+    text-align: center;
+}
+body .card {
+    border: none;
+    max-width: 500px;
+    background: #FFFFFF;
+    margin: 50px 200px 200px 430px;
+    border-radius: 20px;
+    padding: 50px;
+    display: flex;
+    box-shadow: 5px 10px 50px rgba(0, 0, 0, 0.5);
+}
+
+body label, i {
+    color: black;
+}
+
+.information input {
+    margin: 0px 0px 50px 100px;
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+label {
+    font-weight: 500;
+}
+
+select {
+    border-radius: 10px;
+    border: 1px solid black;
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    margin-left: 100px;
+}
+
+#submit {
+    margin: 80px 0px 0px 40px;
+}
