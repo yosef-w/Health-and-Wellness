@@ -40,8 +40,8 @@ function logUserOut(){
 
 
   return (
-      <>
-        <Navbar loggedIn={loggedIn} />
+      <div className="app-container">
+        <Navbar loggedIn={loggedIn} logUserOut={logUserOut} />
         <div className="container">
             { message ? <AlertMessage flashMessage={flashMessage} message={message} category={category} /> : null}
             <Routes >
@@ -54,7 +54,7 @@ function logUserOut(){
             </Routes>
         <Footer />
         </div>
-      </>
+      </div>
   );
 }
 

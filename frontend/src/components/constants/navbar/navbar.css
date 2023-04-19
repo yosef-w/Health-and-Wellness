@@ -9,7 +9,6 @@
     .logo {
         display: flex;
         color: white
-
     }
 
     .nav-menu{
@@ -31,6 +30,9 @@
     color: white;
     }
     
+    .navbar-logo {
+        text-decoration: none;
+    }
     
     .nav-wrapper {
     display: flex;

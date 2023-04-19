@@ -1,9 +1,12 @@
 import React from 'react'
-import Navbar from '../../components/constants/navbar/Navbar'
+import Banner from '../../components/banner/Banner'
+import Options from '../../components/options/Options'
 
 export default function Home() {
   return (
     <div>
+      <Banner />
+      <Options />
     </div>
   )
 }

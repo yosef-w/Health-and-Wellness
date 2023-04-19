@@ -1,37 +1,44 @@
-export default function NutritionDisplay({ responseData, flashMessage }) {
-    if (!responseData) {
-      return null;
-    }
-  
-    const nutritionData = {
-      image: responseData.hits[0].recipe.image,
-      name: responseData.hits[0].recipe.label,
-      cuisineType: responseData.hits[0].recipe.cuisineType,
-      calories: Math.round(responseData.hits[0].recipe.calories),
-      carbohydrates: Math.round(responseData.hits[0].recipe.totalNutrients.CHOCDF.quantity),
-      protein: Math.round(responseData.hits[0].recipe.totalNutrients.PROCNT.quantity),
-      fats: Math.round(responseData.hits[0].recipe.totalNutrients.FAT.quantity),
-      recipe: responseData.hits[0].recipe.url
-    };
-  
-    const handleSubmit = async (event) => {
-      event.preventDefault();
-  
-      const response = await fetch('http://127.0.0.1:5000/nutrition/info', {
-        method: 'POST',
+
+export default function NutritionDisplay({ responseData }) {
+
+  if (!responseData) {
+    return null;
+  }
+
+  const nutritionData = {
+    image: responseData.hits[0].recipe.image,
+    name: responseData.hits[0].recipe.label,
+    cuisine: responseData.hits[0].recipe.cuisineType.join(" "), // joining the list with a space
+    calories: Math.round(responseData.hits[0].recipe.calories),
+    carbohydrates: Math.round(responseData.hits[0].recipe.totalNutrients.CHOCDF.quantity),
+    protein: Math.round(responseData.hits[0].recipe.totalNutrients.PROCNT.quantity),
+    fats: Math.round(responseData.hits[0].recipe.totalNutrients.FAT.quantity),
+    recipe: responseData.hits[0].recipe.url,
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch("http://127.0.0.1:5000/nutrition/info", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(nutritionData)
+        body: JSON.stringify(nutritionData),
       });
-  
+
       if (!response.ok) {
-        flashMessage('There was an error', 'danger');
-      } else {
-        flashMessage(`${nutritionData.name} has been added to your account!`, 'success');
+        throw new Error("Failed to save nutrition data");
       }
-    };
-  
+
+      const responseData = await response.json();
+      console.log(responseData);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
     return (
       <div>
         <div className="d-flex flex-row">

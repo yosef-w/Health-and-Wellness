@@ -17,7 +17,7 @@ export default function SymptomDisplay({ symptomData }) {
                     <div className="col-md-8">
                         <div className="card-body">
                             <h5 className="card-title">Response</h5>
-                            <ul>{potentialCausesList}</ul>
+                            <ol>{potentialCausesList}</ol>
                         </div>
                     </div>
                 </div>
