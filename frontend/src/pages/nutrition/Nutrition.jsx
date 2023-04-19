@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import NutritionForm from '../../components/nutrition/NutritionForm'
 import NutritionDisplay from '../../components/nutrition/NutritionDisplay'
+import "./nutrition.css"
 import axios from 'axios'
+import { GrCheckmark } from "react-icons/gr"
 
 export default function Nutrition() {
 
@@ -21,17 +23,41 @@ export default function Nutrition() {
   
   return (
     <>
-    <div>
-      <form action="" onSubmit={handleSubmit}>
-        <h1 className="text-center">Nutrition</h1>
-        <div className="form-group">
-          {/* <label htmlFor="task">Enter task</label> */}
-          <input className="form-control w-50" type="text" name="food" placeholder='Please Add Your Food Ingredients...' />
-          <input type="submit" value="Submit" className='btn btn-outline-primary w-50 mt-3' />
-        </div>
-      </form>
-    </div>
-    <NutritionDisplay responseData={responseData}/>
+      <div>
+        <form action="" onSubmit={handleSubmit}>
+          <h1 className="text-center">Nutrition</h1>
+          <div className="searchbar">
+            <div className="form-floating">
+              <i className="fa-solid fa-magnifying-glass"></i>
+              <input style={{height: "50px"}}
+                    type="text"
+                    name="food"
+                    className="form-control"
+                    placeholder="Enter your ingredients..."
+                    id="email"
+                  />
+              <div className="text-center">
+                <button style={{width: "250px"}}className="btn btn-sm btn-dark" id="submit" type="submit">Search</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <button style={{ backgroundColor: "red", color: "white" }}>
+  <i className="fas fa-times"></i>
+</button>
+
+<button style={{ backgroundColor: "green" }}>
+  <span style={{ color: "white" }}>
+    <GrCheckmark />
+  </span>
+</button>
+
+<button style={{ backgroundColor: "blue", color: "white" }}>
+  <i className="fas fa-arrow-right"></i>
+</button>
+      <NutritionDisplay responseData={responseData} />
     </>
   )
+  
 }
