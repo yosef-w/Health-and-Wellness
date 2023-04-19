@@ -75,14 +75,14 @@ export default function Login({ flashMessage, logUserIn }) {
               >
                 <div
                   style={{
-                    borderBottom: "1px solid rgb(238, 238, 238)",
+                    borderBottom: "2px solid white",
                     width: "45%",
                   }}
                 />
                 <span style={{ marginTop: "-10px", marginBottom: "-10px" }}>or</span>
                 <div
                   style={{
-                    borderBottom: "1px solid rgb(238, 238, 238)",
+                    borderBottom: "2px solid white",
                     width: "45%",
                   }}
                 />
@@ -118,11 +118,9 @@ export default function Login({ flashMessage, logUserIn }) {
                     </a>
                   </span>
                 </div>
-                <input
-                  type="submit"
-                  defaultValue="Log In"
-                  className="btn btn-block btn-dark"
-                />
+                <button className="btn btn-block btn-outline-dark">
+                Submit
+              </button>
               </form>
               <p className="mt-4" style={{ textAlign: "center" }}>
                 Don't have an account?
@@ -137,8 +135,10 @@ export default function Login({ flashMessage, logUserIn }) {
         </div>
       </div>
     </div>
-    <LoginImageDesign />
-      </div>
+    <div className="col-sm-12 col-md-6" style={{height: 200}}>
+        <img src="/assets/Elegant and Minimalist Medical Logo.png" alt="" />
+    </div>
+    </div>
     </div>
   );
 };

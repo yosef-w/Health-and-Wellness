@@ -49,7 +49,7 @@ class Nutrition(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     image = db.Column(db.String(300))
     name = db.Column(db.String(50), nullable=False)
-    cuisine_type = db.Column(db.String(50), nullable=False)
+    cuisine = db.Column(db.String(50), nullable=False)
     calories = db.Column(db.Integer, nullable=False)
     carbohydrates = db.Column(db.Integer, nullable=False)
     protein = db.Column(db.Integer, nullable=False)
@@ -65,3 +65,38 @@ class Nutrition(db.Model):
 
     def __repr__(self):
         return f"<Nutrition {self.id}|{self.name}>"
+    
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'image': self.image,
+            'name': self.name,
+            'cuisine': self.cuisine,
+            'calories': self.calories,
+            'carbohydrates': self.carbohydrates,
+            'protein': self.protein,
+            'fats': self.fats,
+            'recipe': self.recipe
+        }
+    
+
+class Symptom(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    symptom1 = db.Column(db.String(100), nullable=False)
+    symptom2 = db.Column(db.String(100), nullable=False)
+    symptom3 = db.Column(db.String(100), nullable=False)
+    date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        db.session.add(self)
+        db.session.commit()
+
+    def to_dict(self):
+        return {
+            'symptom1': self.symptom1,
+            'symptom2': self.symptom2,
+            'symptom3': self.symptom3
+        }
+

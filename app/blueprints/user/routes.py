@@ -1,8 +1,8 @@
 from flask import request
 from app import db
 from . import bp
+from flask_login import login_user
 from app.models import User
-from .auth import basic_auth, token_auth
 
 @bp.route('/register', methods=["POST"])
 def create_user():
@@ -36,12 +36,20 @@ def create_user():
         'email': new_user.email
     }, 201 
 
-@bp.route('/token')
-@basic_auth.login_required
-def index():
-    user = basic_auth.current_user()
+
+@bp.route('/login', methods=['POST'])
+def login():
+    username = request.json.get('username')
+    password = request.json.get('password')
+
+    user = User.query.filter_by(username=username).first()
+
+    if user is None or not user.check_password(password):
+        return {'error': 'Invalid username or password'}, 401
+
+    # If the username and password are correct, generate a new token to return
     token = user.get_token()
-    return {'token': token, 'token_exp': user.token_expiration}
+    return {'token': token}, 200
 
 # @bp.route('/register', methods=["GET"])
 # def get_register():

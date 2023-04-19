@@ -1,27 +1,72 @@
-import React from 'react'
+import React from 'react';
 
 export default function SymptomDisplay({ symptomData }) {
-    if (!symptomData) {
-        return null;
+  if (!symptomData) {
+    return null;
+  }
+
+  const potentialCausesList = symptomData.potentialCauses.map((cause, index) => (
+    <li key={index}>{cause}</li>
+  ));
+
+  const topSymptoms = {
+    symptom1: symptomData.potentialCauses[0],
+    symptom2: symptomData.potentialCauses[1],
+    symptom3: symptomData.potentialCauses[2]
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch("http://127.0.0.1:5000/symptom/info", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(topSymptoms),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to save symptom data");
       }
 
-      const potentialCausesList = symptomData.potentialCauses.map((cause, index) => (
-        <li key={index}>{cause}</li>
+      const responseData = await response.json();
+      console.log(responseData);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-    ));
-
-    return (
-        <div className='row mt-5'>
-            <div className="col-12 col-lg-6 offset-lg-3">
-                <div className="card mb-3">
-                    <div className="col-md-8">
-                        <div className="card-body">
-                            <h5 className="card-title">Response</h5>
-                            <ol>{potentialCausesList}</ol>
-                        </div>
-                    </div>
+  return (
+    <div className='container mt-5'>
+      <div className='row justify-content-center'>
+        <div className='col-lg-8'>
+          <div className='card text-center'>
+            <div className='card-body'>
+              <h5 className='card-title'>Potential Causes:</h5>
+              <ol style={{listStyleType: 'none', paddingInlineStart: '0px'}}>{potentialCausesList}</ol>
+              <div className='row justify-content-center m-0'>
+                <div className='col-lg-4'>
+                  <button className='btn btn-danger w-100' onClick={(event) => { event.preventDefault(); }}>
+                    Not Likely
+                  </button>
                 </div>
+                <div className='col-lg-4'>
+                  <button className='btn btn-success w-100' onClick={handleSubmit}>
+                    Save to Profile
+                  </button>
+                </div>
+                <div className='col-lg-4'>
+                  <button className='btn btn-primary w-100' onClick={(event) => { event.preventDefault(); }}>
+                    More Info
+                  </button>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+  }  

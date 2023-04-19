@@ -18,4 +18,12 @@ login = LoginManager(app)
 from app.blueprints.user import bp
 app.register_blueprint(bp)
 
+
+from app.blueprints.nutrition import bp 
+app.register_blueprint(bp)
+
+
+from app.blueprints.symptom import bp2 
+app.register_blueprint(bp2)
+
 from app import routes, models
