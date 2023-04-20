@@ -53,7 +53,7 @@ def login():
 
 
 @bp.route('/vitals', methods=["POST"])
-def get_vitals():
+def add_vitals():
      # Check to see that the request body is JSON aka application/json content-type
     if not request.is_json:
         return {'error': 'Your request content-type must be application/json'}, 400
@@ -83,3 +83,36 @@ def get_vitals():
 
     
     return new_vitals.to_dict()
+
+@bp.route('/vitals', methods=['GET'])
+def get_vitals():
+    vitals = Vitals.query.first()
+    vitals_dict = vitals.to_dict()
+    return vitals_dict
+
+
+@bp.route('vitals', methods=['PUT'])
+def update_vitals():
+    data = request.get_json()
+    first = data.get('first')
+    last = data.get('last')
+    age = data.get('age')
+    weight = data.get('weight')
+    height = data.get('height')
+    systolic = data.get('systolic')
+    diastolic = data.get('diastolic')
+    activity = data.get('activity')
+
+    vitals = Vitals.query.first()
+    vitals.first = first
+    vitals.last = last
+    vitals.age = age
+    vitals.weight = weight
+    vitals.height = height
+    vitals.systolic = systolic
+    vitals.diastolic = diastolic
+    vitals.activity = activity
+
+    db.session.commit()
+
+    return {'message': 'Vitals updated successfully'}

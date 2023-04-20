@@ -1,22 +1,17 @@
 import React from 'react'
 import { RiMentalHealthFill } from "react-icons/ri"
+import './profile.css'
 
 export default function Sidebar() {
   return (
     <div>
-      <div className="col-3">
-      <ul className="nav flex-column">
-        <h1 className="pt-4 pb-2">
-            <div className='logo'>
-                <RiMentalHealthFill color="#fff" size={40} />
-                <h3 className='navbar-title'>Health and Wellness</h3>
-            </div>
-            </h1>
-            <li className="nav-item">
-                <a className="nav-link" href="#">
-                Profile
-                </a>
-                </li>
+      <div className='sidebar'>
+            <ul className="nav flex-column">
+                <li className="nav-item">
+                    <a className="nav-link" href="#">
+                    Profile
+                    </a>
+                    </li>
                 <li className="nav-item active">
                     <a className="nav-link" href="#">
                     Symptoms

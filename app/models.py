@@ -130,6 +130,4 @@ class Vitals(db.Model):
             "systolic": self.systolic,
             "diastolic": self.diastolic,
             "activity": self.activity,
-            "date_created": self.date_created,
-            "user_id": self.user_id,
         }
