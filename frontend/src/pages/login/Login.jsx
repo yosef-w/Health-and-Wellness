@@ -59,12 +59,12 @@ export default function Login({ flashMessage, logUserIn }) {
     <div className="col-md-6 order-last order-md-first">
       <div className="d-lg-flex half">
         <div className="container">
-          <div className="row align-items-center justify-content-center">
+          <div id="login-form" className="row align-items-center justify-content-center">
             <div className="col-md-7">
               <h3>
                 <strong>Welcome!</strong>
               </h3>
-              <p className="mb-4">Glad your back! Please enter your details.</p>
+              <p className="mb-4">Glad your back! Please enter your details:</p>
               <button className="btn btn-block btn-outline-dark">
                 <FcGoogle size={30} className="mr-2"/>
                 <span>Login with Google</span>
@@ -93,7 +93,7 @@ export default function Login({ flashMessage, logUserIn }) {
                     type="text"
                     name="username"
                     className="form-control"
-                    placeholder="Email"
+                    placeholder="Username"
                     id="email"
                   />
                 </div>
@@ -108,7 +108,7 @@ export default function Login({ flashMessage, logUserIn }) {
                 </div>
                 <div className="d-flex mb-5 align-items-center">
                   <label className="control control--checkbox mb-0">
-                    <input type="checkbox" defaultChecked="checked" className='checkbox'/>
+                    <input type="checkbox" defaultChecked="" className='checkbox'/>
                     <span className="caption">Remember me</span>
                     <div className="control__indicator" />
                   </label>
@@ -135,8 +135,8 @@ export default function Login({ flashMessage, logUserIn }) {
         </div>
       </div>
     </div>
-    <div className="col-sm-12 col-md-6" style={{height: 200}}>
-        <img src="/assets/Elegant and Minimalist Medical Logo.png" alt="" />
+    <div className="col-6">
+        <img src="./assets/ian-keefe-NBQhCKtg_9Y-unsplash.jpg" alt="" />
     </div>
     </div>
     </div>

@@ -30,3 +30,19 @@ button.btn {
     color: white;
     background-color: #222;
 }
+
+#login-form {
+  margin-top: 40px;
+}
+
+#login-form .mb-4 {
+  margin: 0px;
+}
+
+#login-form button {
+  margin-left: 0px;
+}
+
+#login-form p{
+  font-size: 14px;
+}

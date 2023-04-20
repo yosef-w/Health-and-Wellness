@@ -12,7 +12,7 @@
 h5 {
     text-align: center;
 }
-body .card {
+#vitals {
     border: none;
     max-width: 500px;
     background: #FFFFFF;
@@ -49,6 +49,6 @@ select {
     margin-left: 100px;
 }
 
-#submit {
+submit {
     margin: 80px 0px 0px 40px;
 }

@@ -34,7 +34,6 @@ export default function Nutrition() {
                     name="food"
                     className="form-control"
                     placeholder="Enter your ingredients..."
-                    id="email"
                   />
               <div className="text-center">
                 <button style={{width: "250px"}}className="btn btn-sm btn-dark" id="submit" type="submit">Search</button>

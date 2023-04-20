@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import SymptomDisplay from '../../components/symptom/SymptomDisplay'
 // import SymptomForm from '../../components/symptom/SymptomForm'
 import axios from 'axios';
+import './symptom.css'
 
 export default function Symptom({ flashMessage }) {
   const [symptomData, setSymptomData] = useState(null);
@@ -38,14 +39,24 @@ export default function Symptom({ flashMessage }) {
   return (
     <div>
         <div>
-          <form action="" onSubmit={handleSubmit}>
-                <h1 className="text-center">Symptoms</h1>
-                <div className="form-">
-                    <input className="form-control w-50" type="text" name="symptom" placeholder='What Symptoms Do You Have...' />
-                    <input type="submit" value="Submit" className='btn btn-outline-primary w-50 mt-3' />
-                </div>
-            </form>
-        </div>
+        <form action="" onSubmit={handleSubmit}>
+          <h1 className="text-center">Symptoms</h1>
+          <div className="searchbar">
+            <div className="form-floating">
+              <i className="fa-solid fa-magnifying-glass"></i>
+              <input style={{height: "50px"}}
+                    type="text"
+                    name="symptom"
+                    className="form-control"
+                    placeholder="Enter your ingredients..."
+                  />
+              <div className="text-center">
+                <button style={{width: "250px"}}className="btn btn-sm btn-dark" id="submit" type="submit">Search</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
       <SymptomDisplay symptomData={symptomData}/>
     </div>
   )
