@@ -1,5 +1,7 @@
+import React from "react";
 
-export default function NutritionDisplay({ responseData }) {
+export default function NutritionDisplay({ responseData, flashMessage }) {
+
 
   if (!responseData) {
     return null;
@@ -29,7 +31,9 @@ export default function NutritionDisplay({ responseData }) {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to save nutrition data");
+        flashMessage("Failed to save nutrition data.", "danger");
+      } else {
+        flashMessage("Nutrition data saved successfully!", "success");
       }
 
       const responseData = await response.json();

@@ -5,7 +5,7 @@ import "./nutrition.css"
 import axios from 'axios'
 import { GrCheckmark } from "react-icons/gr"
 
-export default function Nutrition() {
+export default function Nutrition({ flashMessage }) {
 
     const [responseData, setResponseData] = useState(null);
 
@@ -42,7 +42,7 @@ export default function Nutrition() {
           </div>
         </form>
       </div>
-      <NutritionDisplay responseData={responseData} />
+      <NutritionDisplay responseData={responseData} flashMessage={flashMessage} />
       <div id="spacer"></div>
     </>
   )

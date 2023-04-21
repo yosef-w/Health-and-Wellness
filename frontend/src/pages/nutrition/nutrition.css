@@ -22,3 +22,16 @@ input {
 #spacer{
     margin-bottom: 500px;
 }
+
+
+.form-floating .form-control{
+    width: 350px;
+    padding-left: 45px;
+    font-size: 20px;
+}
+
+.form-floating input {
+    border: none;
+    background: #dae7e5;
+    border-radius: 30px;
+}

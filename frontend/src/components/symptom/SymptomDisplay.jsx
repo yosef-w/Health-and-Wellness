@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function SymptomDisplay({ symptomData }) {
+export default function SymptomDisplay({ symptomData, flashMessage }) {
   if (!symptomData) {
     return null;
   }
@@ -28,7 +28,9 @@ export default function SymptomDisplay({ symptomData }) {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to save symptom data");
+        flashMessage("Failed to save symptom data.", "danger");
+      } else {
+        flashMessage("Symptom data saved successfully!", "success");
       }
 
       const responseData = await response.json();

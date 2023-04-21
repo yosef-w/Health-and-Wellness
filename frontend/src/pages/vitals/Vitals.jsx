@@ -55,9 +55,9 @@ export default function Vitals({ flashMessage }) {
     }
 
     return (
-      <div className='title'>
-        <h1>Vitals</h1>
-        <div className='card' id='vitals'>
+      <div className='title' >
+        <h1 style={{textAlign: "center"}}>Vitals</h1>
+        <div className='card' id='vitals' style={{textAlign: "center"}}>
           <h5>Please provide more information about yourself below! This data will be saved to your profile:</h5>
           <hr></hr>
 

@@ -71,7 +71,7 @@ export default function Symptom({ flashMessage }) {
           </div>
         </form>
       </div>
-      <SymptomDisplay symptomData={symptomData}/>
+      <SymptomDisplay symptomData={symptomData} flashMessage={flashMessage}/>
       <div id="spacer"></div>
     </div>
   )

@@ -20,14 +20,13 @@ export default function Navbar({ loggedIn, logUserOut}) {
             <>
               <NavLink className="nav-link" activeClassName="active" to="/profile">Profile</NavLink>
               <NavLink className="nav-link" activeClassName="active" to="/" onClick={() => logUserOut()}>Logout</NavLink>
-              <NavLink className="nav-link" activeClassName="active" to="#">FAQ</NavLink>
+              <NavLink className="nav-link" activeClassName="active" to="#">Contact</NavLink>
             </>
           ) : (
             <>
               <NavLink className="nav-link" activeClassName="active" exact to="/">Home</NavLink>
               <NavLink className="nav-link" activeClassName="active" to="/register">Sign Up</NavLink>
               <NavLink className="nav-link" activeClassName="active" to="/login">Login</NavLink>
-              <NavLink className="nav-link" activeClassName="active" to="#">FAQ</NavLink>
               <NavLink className="nav-link" activeClassName="active" to="#">Contact</NavLink>
             </>
           )}

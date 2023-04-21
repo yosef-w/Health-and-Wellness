@@ -7,19 +7,19 @@
 .title h1 {
     text-align: center;
     margin-top: 50px;
+    margin-bottom: 50px; 
 }
 
 h5 {
     text-align: center;
 }
 #vitals {
-    border: none;
+    width: 50%;
+    margin: auto;
     max-width: 500px;
     background: #FFFFFF;
-    margin: 50px 200px 200px 430px;
     border-radius: 20px;
     padding: 50px;
-    display: flex;
     box-shadow: 5px 10px 50px rgba(0, 0, 0, 0.5);
 }
 
