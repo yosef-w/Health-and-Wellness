@@ -10,3 +10,18 @@
 .sidebar a{
     color: black;
 }
+
+#activity {
+    margin-left: 100px;
+    margin-bottom: 20px;
+}
+
+#activity-form {
+    height: 35px;
+    width: 200px;
+}
+
+#update-button{
+    margin: 0px 0px 0px 230px;
+
+}

@@ -44,7 +44,7 @@ function logUserOut(){
   return (
       <div className="app-container">
         <Navbar loggedIn={loggedIn} logUserOut={logUserOut} />
-        <div className="container">
+        <div className="container m-0 p-0">
             { message ? <AlertMessage flashMessage={flashMessage} message={message} category={category} /> : null}
             <Routes >
                 <Route path='/' element={<Home user={user} loggedIn={loggedIn} />} />

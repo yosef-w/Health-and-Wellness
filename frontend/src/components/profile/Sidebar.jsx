@@ -1,25 +1,29 @@
-import React from 'react'
-import { RiMentalHealthFill } from "react-icons/ri"
-import './profile.css'
+import React from 'react';
+import { RiMentalHealthFill } from 'react-icons/ri';
+import './profile.css';
 
-export default function Sidebar() {
+export default function Sidebar(props) {
+  const handleLinkClick = (display) => {
+    props.onLinkClick(display);
+  };
+
   return (
     <div>
       <div className='sidebar'>
             <ul className="nav flex-column">
                 <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <a className="nav-link" href="#" onClick={() => handleLinkClick('vitals')}>
                     Profile
                     </a>
                     </li>
                 <li className="nav-item active">
-                    <a className="nav-link" href="#">
-                    Symptoms
+                    <a className="nav-link" href="#" onClick={() => handleLinkClick('nutrition')}>
+                    Nutrition
                     </a>
                 </li>
                 <li className="nav-item">
                     <a className="nav-link" href="#">
-                    Nutrition
+                    Symptoms
                     </a>
                 </li>
                 <li className="nav-item">
@@ -35,7 +39,5 @@ export default function Sidebar() {
             </ul>
         </div>
     </div>
-
-
-  )
+  );
 }

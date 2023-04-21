@@ -40,7 +40,7 @@ export default function Symptom({ flashMessage }) {
     <div>
         <div>
         <form action="" onSubmit={handleSubmit}>
-          <h1 className="text-center">Symptoms</h1>
+          <h1 className="text-center" style={{marginTop: "50px"}}>Symptoms</h1>
           <div className="searchbar">
             <div className="form-floating">
               <i className="fa-solid fa-magnifying-glass"></i>
@@ -58,6 +58,7 @@ export default function Symptom({ flashMessage }) {
         </form>
       </div>
       <SymptomDisplay symptomData={symptomData}/>
+      <div id="spacer"></div>
     </div>
   )
 }

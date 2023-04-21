@@ -25,7 +25,7 @@ export default function Nutrition() {
     <>
       <div>
         <form action="" onSubmit={handleSubmit}>
-          <h1 className="text-center">Nutrition</h1>
+          <h1 className="text-center" style={{marginTop: "50px"}}>Nutrition</h1>
           <div className="searchbar">
             <div className="form-floating">
               <i className="fa-solid fa-magnifying-glass"></i>
@@ -42,20 +42,8 @@ export default function Nutrition() {
           </div>
         </form>
       </div>
-      <button style={{ backgroundColor: "red", color: "white" }}>
-  <i className="fas fa-times"></i>
-</button>
-
-<button style={{ backgroundColor: "green" }}>
-  <span style={{ color: "white" }}>
-    <GrCheckmark />
-  </span>
-</button>
-
-<button style={{ backgroundColor: "blue", color: "white" }}>
-  <i className="fas fa-arrow-right"></i>
-</button>
       <NutritionDisplay responseData={responseData} />
+      <div id="spacer"></div>
     </>
   )
   

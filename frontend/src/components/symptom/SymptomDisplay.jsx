@@ -39,7 +39,7 @@ export default function SymptomDisplay({ symptomData }) {
   };
 
   return (
-    <div className='container mt-5'>
+    <div className='container mt-5'style={{ marginBottom: "100px"}}>
       <div className='row justify-content-center'>
         <div className='col-lg-8'>
           <div className='card text-center'>
@@ -47,7 +47,7 @@ export default function SymptomDisplay({ symptomData }) {
               <h5 className='card-title'>Potential Causes:</h5>
               <ol style={{listStyleType: 'none', paddingInlineStart: '0px'}}>{potentialCausesList}</ol>
               <div className='row justify-content-center m-0'>
-                <div className='col-lg-4'>
+                <div className='col-lg-4' >
                   <button className='btn btn-danger w-100' onClick={(event) => { event.preventDefault(); }}>
                     Not Likely
                   </button>

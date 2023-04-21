@@ -4,7 +4,7 @@ import "./footer.css"
 
 export default function Footer() {
     return (
-        <div className="footer">
+        <div className="footer m-0">
           <div className="container">
             <div className="footer-wrapper">
               <div className='logo'>

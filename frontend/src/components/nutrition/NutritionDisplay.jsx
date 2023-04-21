@@ -40,7 +40,7 @@ export default function NutritionDisplay({ responseData }) {
   };
 
     return (
-      <div>
+      <div className="d-flex justify-content-center">
         <div className="d-flex flex-row">
         <div className="card" style={{ width: "22rem" }}>
           <img className="card-img-top w-" style ={{ width:"100%", height: "20rem" }}src={responseData.hits[0].recipe.image} alt="Card image cap" />
@@ -90,7 +90,7 @@ export default function NutritionDisplay({ responseData }) {
             <a href="#" className="card-link">
               Skip
             </a>
-            <a href="#" className="card-link">
+            <a href="#" className="card-link" onClick={handleSubmit}>
               Save
             </a>
             <a href={responseData.hits[1].recipe.url} className="card-link">
@@ -120,7 +120,7 @@ export default function NutritionDisplay({ responseData }) {
             <a href="#" className="card-link">
               Skip
             </a>
-            <a href="#" className="card-link">
+            <a href="#" className="card-link" onClick={handleSubmit}>
               Save
             </a>
             <a href={responseData.hits[2].recipe.url} className="card-link">

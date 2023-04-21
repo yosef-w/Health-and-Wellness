@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './profile.css';
 import axios from 'axios';
 
-export default function VitalsDisplay() {
-  const [userData, setUserData] = useState(null);
+export default function VitalsDisplay({ flashMessage }) {
+    const navigate = useNavigate();
+    const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     axios
@@ -68,55 +70,51 @@ export default function VitalsDisplay() {
   
     return (
       <div>
-        <div className="col-12 col-md-9 p-4 m-auto">
-          <div className="card p-4 m-3">
-              <form className="row g-3" onSubmit={handleSubmit}>
-              <h2>User Information</h2>
-              <div className="col-md-4">
-                  <label>First Name</label>
-                  <input type="text" name='first' className="form-control" defaultValue={userData?.firstName}/>
-              </div>
-              <div className="col-md-4">
-                  <label>Last Name</label>
-                  <input type="text" name='last' className="form-control" defaultValue={userData?.lastName}/>
-              </div>
-              <div className="col-2">
-                  <label>Age</label>
-                  <input type="text" name='age' className="form-control" defaultValue={userData?.age}/>
-              </div>
-              <div className="col-2">
-                  <label>Weight</label>
-                  <input type="text" name='weight' className="form-control" defaultValue={userData?.weight}/>
-              </div>
-              <div className="col-2">
-                  <label>Height</label>
-                  <input type="text" name='height' className="form-control" defaultValue={userData?.height}/>
-              </div>
-              <div className="col-2">
-                  <label>Systolic</label>
-                  <input type="text" name='systolic' className="form-control" defaultValue={userData?.systolic}/>
-              </div>
-              <div className="col-2">
-                  <label>Diastolic</label>
-                  <input type="text" name='diastolic' className="form-control" defaultValue={userData?.diastolic}/>
-              </div>
-              <div className="col-4">
-                  <label>Activity</label>
-                  <select name='activity' defaultValue={userData?.activityLevel}>
-                  <option disabled value=''>Please select</option>
-                  <option value='Sedentary'>Sedentary</option>
-                  <option value='Moderate'>Moderate</option>
-                  <option value='Active'>Active</option>
-                  </select>
-              </div>
-              
-  
-              <div className="col-md-12">
-                  <button type="submit" className="btn w-100 mt-2">Update Information</button>
-              </div>
-              </form>
-          </div>
-          </div>
+<div className="card p-4 m-3">
+  <form onSubmit={handleSubmit}>
+    <h2>User Information</h2>
+    <div className="row g-3">
+      <div className="col-md-4">
+        <label>First Name:</label>
+        <input type="text" name='first' className="form-control" defaultValue={userData?.firstName}/>
+      </div>
+      <div className="col-md-4">
+        <label>Last Name:</label>
+        <input type="text" name='last' className="form-control" defaultValue={userData?.lastName}/>
+      </div>
+      <div className="col-md-2">
+        <label>Age:</label>
+        <input type="text" name='age' className="form-control" defaultValue={userData?.age}/>
+      </div>
+      <div className="col-md-2">
+        <label>Weight:</label>
+        <input type="text" name='weight' className="form-control" defaultValue={userData?.weight}/>
+      </div>
+      <div className="col-md-2">
+        <label>Height:</label>
+        <input type="text" name='height' className="form-control" defaultValue={userData?.height}/>
+      </div>
+      <div className="col-md-2">
+        <label>Systolic:</label>
+        <input type="text" name='systolic' className="form-control" defaultValue={userData?.systolic}/>
+      </div>
+      <div className="col-md-2">
+        <label>Diastolic:</label>
+        <input type="text" name='diastolic' className="form-control" defaultValue={userData?.diastolic}/>
+      </div>
+      <div className="col-md-4">
+        <label id="activity">Activity:</label>
+        <select id='activity-form' name='activity' className="form-select" defaultValue={userData?.activityLevel}>
+          <option disabled value=''>Please select</option>
+          <option value='Sedentary'>Sedentary</option>
+          <option value='Moderate'>Moderate</option>
+          <option value='Active'>Active</option>
+        </select>
+      </div>
+    </div>
+    <button id='update-button' type="submit" className="btn btn-primary mt-2">Update Information</button>
+  </form>
+</div>
       </div>
     )
   }

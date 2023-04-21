@@ -75,14 +75,14 @@ export default function Login({ flashMessage, logUserIn }) {
               >
                 <div
                   style={{
-                    borderBottom: "2px solid white",
+                    borderBottom: "2px solid gray",
                     width: "45%",
                   }}
                 />
                 <span style={{ marginTop: "-10px", marginBottom: "-10px" }}>or</span>
                 <div
                   style={{
-                    borderBottom: "2px solid white",
+                    borderBottom: "2px solid gray",
                     width: "45%",
                   }}
                 />
@@ -122,10 +122,10 @@ export default function Login({ flashMessage, logUserIn }) {
                 Submit
               </button>
               </form>
-              <p className="mt-4" style={{ textAlign: "center" }}>
+              <p className="mt-4" style={{ textAlign: "center", marginBottom: "200px"  }}>
                 Don't have an account?
                 <a href='/register'>
-                <strong style={{ color: "black", cursor: "pointer" }}>
+                <strong style={{ color: "black", cursor: "pointer"}}>
                   Sign up for free
                 </strong>
                 </a>
@@ -135,9 +135,17 @@ export default function Login({ flashMessage, logUserIn }) {
         </div>
       </div>
     </div>
-    <div className="col-6">
-        <img src="./assets/ian-keefe-NBQhCKtg_9Y-unsplash.jpg" alt="" />
-    </div>
+    <div className="col-6 position-relative">
+        <img 
+          src="./assets/ian-keefe-NBQhCKtg_9Y-unsplash.jpg" 
+          alt="" 
+          style={{
+            position: "absolute",
+            width: "100%",
+            height: "100%"
+          }}
+        />
+      </div>
     </div>
     </div>
   );

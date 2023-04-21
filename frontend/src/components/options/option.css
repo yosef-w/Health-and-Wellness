@@ -1,5 +1,5 @@
 .support-section {
-    padding-top: 65px;
+    padding-top: 150px;
     padding-bottom: 65px;
     }
     
@@ -62,8 +62,8 @@
     }
     
     .support-square-text {
-    color: #f9f9f9;
-    font-size: 40px;
+    color: white;
+    font-size: 60px;
     line-height: 1.2;
     font-weight: 700;
     text-align: center;
@@ -78,3 +78,11 @@
     text-decoration: none;
   }
   
+  #subtext {
+   font-size: 15px;
+   text-align: center;
+  }
+
+  /* #subtitle{
+   font
+  } */
