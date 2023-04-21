@@ -9,6 +9,18 @@ export default function NutritionDisplay() {
       .then(response => setNutritionList(response.data));
   }, []);
 
+  const handleDelete = (nutrition) => {
+    axios
+      .delete('http://127.0.0.1:5000/nutrition/delete', { data: { name: nutrition.name } })
+      .then(response => {
+        console.log(response.data.message);
+        // Reload the nutrition list after deleting the instance
+        axios.get('http://127.0.0.1:5000/nutrition/saved')
+          .then(response => setNutritionList(response.data));
+      })
+      .catch(error => console.error(error));
+  }
+      
   return (
     <div>
       {nutritionList.map(nutrition => (
@@ -27,7 +39,7 @@ export default function NutritionDisplay() {
                   <li className="list-group-item">Protein: {nutrition.protein}</li>
                   <li className="list-group-item">Fats: {nutrition.fats}</li>
                 </ul>
-                <button href="#" class="btn btn-danger" style={{width: "110px", height: "40px", margin: "0px", backgroundColor: "#dc3545]", border: "none"}}>Delete</button>
+                <button href="#" class="btn btn-danger" style={{width: "110px", height: "40px", margin: "0px", backgroundColor: "#dc3545", border: "none"}} onClick={() => handleDelete(nutrition)}>Delete</button>
                 <button href="#" class="btn btn-primary" style={{width: "100px", height: "40px", margin: "0px 0px 0px 30px", backgroundColor: "#007bff", border: "none"}}>Keep</button>
               </div>
             </div>
@@ -37,4 +49,3 @@ export default function NutritionDisplay() {
     </div>
   );
 }
-

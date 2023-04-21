@@ -35,3 +35,28 @@ def add_symptom():
     db.session.commit()
 
     return jsonify(new_symptoms.to_dict()), 201
+
+@bp2.route('/saved', methods=['GET'])
+def get_symptoms():
+    symptoms = Symptom.query.all()
+    return jsonify([symptom.to_dict() for symptom in symptoms]), 200
+
+@bp2.route('/delete', methods=['DELETE'])
+def delete_symptom():
+    if not request.is_json:
+        return jsonify({'error': 'Your request content-type must be application/json'}), 400
+
+    data = request.json
+    if 'symptom1' not in data:
+        return jsonify({'error': 'The request body must contain symptom1 to delete'}), 400
+
+    symptom1 = data['symptom1']
+
+    symptom = Symptom.query.filter_by(symptom1=symptom1).first()
+    if not symptom:
+        return jsonify({'error': f"No symptoms found with the name '{symptom1}'"}), 404
+
+    db.session.delete(symptom)
+    db.session.commit()
+
+    return jsonify({'message': f"{symptom1} was deleted successfully"}), 200

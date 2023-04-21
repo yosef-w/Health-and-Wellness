@@ -22,7 +22,7 @@ export default function Register({ flashMessage }) {
     const handlePasswordChange = event => {
         setPassword(event.target.value)};
     
-    const handleConfirmPassword = event => {
+    const handleConfirmPasswordChange = event => {
         setConfirmPassword(event.target.value)};
 
     const handleRegister = event => {
@@ -65,82 +65,78 @@ export default function Register({ flashMessage }) {
 
     return (
         <>
-            <title>Sign Up</title>
-            <div className="container">
-                <div className="row">
-                    <div
-                        className="col-sm-12 col-md-6 d-flex flex-column justify-content-center align-items-center"
-                        id="content"
-                    >
-                    <form action="" onSubmit={handleRegister}>
-                        <h1 className="display-2 mb-5">Sign Up</h1>
-                        <div className="form-floating">
-                            {/* <i className="icon fa-regular fa-user" /> */}
-                            <input
-                                type="text"
-                                name="username"
-                                id="user"
-                                placeholder="Username"
-                                className="form-control"
-                                value={username}
-                                onChange={handleUsernameChange}
-                            />
-                            <label htmlFor="user">Username</label>
-                        </div>
-                        <div className="form-floating">
-                            {/* <i className="icon fa-regular fa-envelope" /> */}
-                            <input
-                                type="text"
-                                name="email"
-                                id="email"
-                                placeholder="Email"
-                                className="form-control"
-                                value={email}
-                                onChange={handleEmailChange}
-                            />
-                            <label htmlFor="email">Email</label>
-                        </div>
-                        <div className="form-floating">
-                            {/* <i className="icon fa-solid fa-lock" /> */}
-                            <input
-                                type="password"
-                                name="password"
-                                id="password"
-                                placeholder="Password"
-                                className="form-control"
-                                value={password}
-                                onChange={handlePasswordChange}
-                            />
-                            <label htmlFor="password">Password</label>
-                        </div>
-                        <div className="form-floating">
-                            {/* <i className="icon fa-solid fa-lock" /> */}
-                            <input
-                                type="password"
-                                name="confirmPassword"
-                                id="confirmPassword"
-                                placeholder="Password"
-                                className="form-control"
-                                value={confirmPassword}
-                                onChange={handleConfirmPassword}
-                            />
-                            <label htmlFor="confirmPassword">Confirm Password</label>
-                        </div>
-                        <button>Sign Up</button>
-                        </form>
-                        <p>Or Sign Up With Social Platforms</p>
-                        <div className="w-75 d-flex justify-content-between mt-4">
-                            <FaFacebook size={30}/>
-                            <FaTwitter size={30}/>
-                            <FcGoogle size={30}/>
-                            <FaGithub size={30}/>
-                        </div>
-                    </div>
-                    <div className="col-sm-12 col-md-6">
-                        <img src="/assets/Elegant and Minimalist Medical Logo.png" alt="" />
-                    </div>
+          <title>Sign Up</title>
+          <div className="container signup">
+            <div className="row">
+              <div className="col-sm-12 col-md-6 d-flex flex-column justify-content-center align-items-center">
+                <form onSubmit={handleRegister}>
+                  <h1 id='signup' style={{textAlign: "center"}}>Sign Up</h1>
+                  <div>
+                    <input
+                      type="text"
+                      name="username"
+                      className="form-control"
+                      placeholder="Username"
+                      value={username}
+                      onChange={handleUsernameChange}
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      name="email"
+                      className="form-control"
+                      placeholder="Email"
+                      value={email}
+                      onChange={handleEmailChange}
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="password"
+                      name="password"
+                      className="form-control"
+                      placeholder="Password"
+                      value={password}
+                      onChange={handlePasswordChange}
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="password"
+                      name="confirmPassword"
+                      className="form-control"
+                      placeholder="Confirm Password"
+                      value={confirmPassword}
+                      onChange={handleConfirmPasswordChange}
+                    />
+                  </div>
+                  <button className="btn btn-block btn-outline-dark">
+                Submit
+              </button>
+                </form>
+                <p style={{marginBottom: "50px"}}>Or Sign Up With Social Platforms</p>
+                <div className="w-75 d-flex justify-content-between mt-4" style={{marginBottom: "250px"}}>
+                  <FaFacebook size={30} />
+                  <FaTwitter size={30} />
+                  <FcGoogle size={30} />
+                  <FaGithub size={30} />
                 </div>
+              </div>
+              <div className="col-6 position-relative">
+                <img 
+                src="./assets/signup.jpg" 
+                alt="" 
+                style={{
+                    position: "",
+                    width: "100%",
+                    height: "100%"
+                }}
+                />
             </div>
+            </div>
+          </div>
         </>
-    )
-};
+      );
+    }
+    

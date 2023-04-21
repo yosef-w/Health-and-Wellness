@@ -51,3 +51,24 @@ def get_nutrition():
     nutrition_list = Nutrition.query.all()
     nutrition_dict_list = [nutrition.to_dict() for nutrition in nutrition_list]
     return jsonify(nutrition_dict_list)
+
+
+@bp.route('/delete', methods=['DELETE'])
+def delete_nutrition():
+    if not request.is_json:
+        return jsonify({'error': 'Your request content-type must be application/json'}), 400
+
+    data = request.json
+    if 'name' not in data:
+        return jsonify({'error': 'The request body must contain the name of the nutrition instance to delete'}), 400
+
+    name = data['name']
+
+    nutrition = Nutrition.query.filter_by(name=name).first()
+    if not nutrition:
+        return jsonify({'error': f"No nutrition item found with the name '{name}'"}), 404
+
+    db.session.delete(nutrition)
+    db.session.commit()
+
+    return jsonify({'message': f"{name} was deleted successfully"}), 200
