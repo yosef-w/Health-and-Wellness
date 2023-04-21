@@ -18,16 +18,17 @@ export default function Navbar({ loggedIn, logUserOut}) {
             <nav className="nav-menu">
             { loggedIn ? (
             <>
-              <NavLink className="nav-link" activeClassName="active" to="/profile">Profile</NavLink>
-              <NavLink className="nav-link" activeClassName="active" to="/" onClick={() => logUserOut()}>Logout</NavLink>
-              <NavLink className="nav-link" activeClassName="active" to="#">Contact</NavLink>
+              <NavLink className="nav-link" to="/">Home</NavLink>
+              <NavLink className="nav-link" to="/profile">Profile</NavLink>
+              <NavLink className="nav-link" to="/" onClick={() => logUserOut()}>Logout</NavLink>
+              <NavLink className="nav-link" to="#">Contact</NavLink>
             </>
           ) : (
             <>
-              <NavLink className="nav-link" activeClassName="active" exact to="/">Home</NavLink>
-              <NavLink className="nav-link" activeClassName="active" to="/register">Sign Up</NavLink>
-              <NavLink className="nav-link" activeClassName="active" to="/login">Login</NavLink>
-              <NavLink className="nav-link" activeClassName="active" to="#">Contact</NavLink>
+              <NavLink className="nav-link" to="/">Home</NavLink>
+              <NavLink className="nav-link" to="/register">Sign Up</NavLink>
+              <NavLink className="nav-link" to="/login">Login</NavLink>
+              <NavLink className="nav-link" to="#">Contact</NavLink>
             </>
           )}
             </nav>

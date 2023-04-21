@@ -39,8 +39,8 @@ export default function NutritionDisplay() {
                   <li className="list-group-item">Protein: {nutrition.protein}</li>
                   <li className="list-group-item">Fats: {nutrition.fats}</li>
                 </ul>
-                <button href="#" class="btn btn-danger" style={{width: "110px", height: "40px", margin: "0px", backgroundColor: "#dc3545", border: "none"}} onClick={() => handleDelete(nutrition)}>Delete</button>
-                <button href="#" class="btn btn-primary" style={{width: "100px", height: "40px", margin: "0px 0px 0px 30px", backgroundColor: "#007bff", border: "none"}}>Keep</button>
+                <button href="#" className="btn btn-danger" style={{width: "110px", height: "40px", margin: "0px", backgroundColor: "#dc3545", border: "none"}} onClick={() => handleDelete(nutrition)}>Delete</button>
+                <button href="#" className="btn btn-primary" style={{width: "100px", height: "40px", margin: "0px 0px 0px 30px", backgroundColor: "#007bff", border: "none"}}>Keep</button>
               </div>
             </div>
           </div>

@@ -46,3 +46,7 @@ button.btn {
 #login-form p{
   font-size: 14px;
 }
+
+#login-button {
+  text-align: center;
+}

@@ -54,8 +54,8 @@ export default function Login({ flashMessage, logUserIn }) {
   }
 
   return (
-    <div class="container-fluid">
-    <div class="row">
+    <div className="container-fluid">
+    <div className="row">
     <div className="col-md-6 order-last order-md-first">
       <div className="d-lg-flex half">
         <div className="container">
@@ -65,7 +65,7 @@ export default function Login({ flashMessage, logUserIn }) {
                 <strong>Welcome!</strong>
               </h3>
               <p className="mb-4">Glad your back! Please enter your details:</p>
-              <button className="btn btn-block btn-outline-dark">
+              <button id="login-button" className="btn btn-block btn-outline-dark">
                 <FcGoogle size={30} className="mr-2"/>
                 <span>Login with Google</span>
               </button>
@@ -118,7 +118,7 @@ export default function Login({ flashMessage, logUserIn }) {
                     </a>
                   </span>
                 </div>
-                <button className="btn btn-block btn-outline-dark">
+                <button id="login-button" className="btn btn-block btn-outline-dark">
                 Submit
               </button>
               </form>

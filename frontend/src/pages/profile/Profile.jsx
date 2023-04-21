@@ -5,7 +5,7 @@ import VitalsDisplay from '../../components/profile/VitalsDisplay';
 import SavedNutrition from '../../components/profile/SavedNutrition';
 import SavedSymptoms from '../../components/profile/SavedSymptoms';
 
-export default function Profile() {
+export default function Profile({ flashMessage }) {
     const [activeDisplay, setActiveDisplay] = useState('vitals');
   
     const handleLinkClick = (display) => {
@@ -15,7 +15,7 @@ export default function Profile() {
     let displayComponent;
   
     if (activeDisplay === 'vitals') {
-      displayComponent = <VitalsDisplay />;
+      displayComponent = <VitalsDisplay flashMessage={flashMessage}/>;
     } else if (activeDisplay === 'nutrition') {
       displayComponent = <SavedNutrition />;
     } else if (activeDisplay === 'symptoms') {
