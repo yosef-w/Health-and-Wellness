@@ -23,5 +23,34 @@
 
 #update-button{
     margin: 0px 0px 0px 230px;
+}
 
+.sidebar .nav-link {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    display: block;
+    margin-top: 20px;
+  }
+  
+#nutrition-card {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    margin: 70px;
+    width: 500px;
+}
+
+#delete{
+    width: 110px;
+    background-color:#dc3545;
+    border: none;   
+}
+
+#research {
+    width: 140px;
+    background-color: #007bff;
+    border: none;
+}
+
+.nutritioncard {
+    margin: 40px;
+    width: 700px;
 }

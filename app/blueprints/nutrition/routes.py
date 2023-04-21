@@ -45,3 +45,9 @@ def add_nutrition():
     db.session.commit()
 
     return jsonify(new_nutrition.to_dict()), 201
+
+@bp.route('/saved', methods=['GET'])
+def get_nutrition():
+    nutrition_list = Nutrition.query.all()
+    nutrition_dict_list = [nutrition.to_dict() for nutrition in nutrition_list]
+    return jsonify(nutrition_dict_list)
