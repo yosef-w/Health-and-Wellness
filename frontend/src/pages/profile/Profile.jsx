@@ -4,6 +4,7 @@ import Sidebar from '../../components/profile/Sidebar';
 import VitalsDisplay from '../../components/profile/VitalsDisplay';
 import SavedNutrition from '../../components/profile/SavedNutrition';
 import SavedSymptoms from '../../components/profile/SavedSymptoms';
+import MuscleSearch from '../../components/muscles/MuscleSearch';
 
 export default function Profile({ flashMessage }) {
     const [activeDisplay, setActiveDisplay] = useState('vitals');
@@ -20,7 +21,11 @@ export default function Profile({ flashMessage }) {
       displayComponent = <SavedNutrition />;
     } else if (activeDisplay === 'symptoms') {
       displayComponent = <SavedSymptoms />
+    } else if (activeDisplay === 'muscles') {
+      displayComponent = <MuscleSearch />
     }
+
+
     return (
       <div className="row">
         <div className="col-3">

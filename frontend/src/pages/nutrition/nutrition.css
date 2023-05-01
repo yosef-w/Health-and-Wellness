@@ -32,6 +32,6 @@ input {
 
 .form-floating input {
     border: none;
-    background: #dae7e5;
+    background: white;
     border-radius: 30px;
 }

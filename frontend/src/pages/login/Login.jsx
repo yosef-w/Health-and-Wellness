@@ -65,10 +65,12 @@ export default function Login({ flashMessage, logUserIn }) {
                 <strong>Welcome!</strong>
               </h3>
               <p className="mb-4">Glad your back! Please enter your details:</p>
-              <button id="login-button" className="btn btn-block btn-outline-dark">
+              <div id="login-button">
+              <button  className="btn btn-block btn-outline-dark">
                 <FcGoogle size={30} className="mr-2"/>
                 <span>Login with Google</span>
               </button>
+              </div>
               <div
                 className="d-flex my-5"
                 style={{ justifyContent: "space-between" }}
@@ -88,16 +90,16 @@ export default function Login({ flashMessage, logUserIn }) {
                 />
               </div>
               <form action="#" onSubmit={handleLogin}>
-                <div className="form-group first">
+                <div id ="input" className="form-group first">
                   <input
                     type="text"
                     name="username"
                     className="form-control"
                     placeholder="Username"
-                    id="email"
+                    id="username"
                   />
                 </div>
-                <div className="form-group last mb-3">
+                <div id ="input" className="form-group last mb-3">
                   <input
                     type="password"
                     name="password"
@@ -118,9 +120,11 @@ export default function Login({ flashMessage, logUserIn }) {
                     </a>
                   </span>
                 </div>
+                <div id="login-button">
                 <button id="login-button" className="btn btn-block btn-outline-dark">
                 Submit
               </button>
+              </div>
               </form>
               <p className="mt-4" style={{ textAlign: "center", marginBottom: "200px"  }}>
                 Don't have an account?

@@ -29,6 +29,7 @@ button.btn {
     border: 1px solid #0e0e0e;
     color: white;
     background-color: #222;
+
 }
 
 #login-form {
@@ -49,4 +50,12 @@ button.btn {
 
 #login-button {
   text-align: center;
+}
+
+#username {
+  height: 50px
+}
+
+#password {
+  height: 50px
 }
