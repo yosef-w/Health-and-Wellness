@@ -116,7 +116,7 @@ export default function Register({ flashMessage }) {
               </button>
                 </form>
                 <p style={{marginBottom: "50px"}}>Or Sign Up With Social Platforms</p>
-                <div className="w-75 d-flex justify-content-between mt-4" style={{marginBottom: "250px"}}>
+                <div className="w-50 d-flex justify-content-between mt-4" style={{marginBottom: "250px"}}>
                   <FaFacebook size={30} />
                   <FaTwitter size={30} />
                   <FcGoogle size={30} />
