@@ -62,15 +62,20 @@ export default function LoginForm({ flashMessage, logUserIn }) {
               <h3 style={{ fontSize: "35px", fontWeight: "400" }}>
                 <strong>Welcome back</strong>
               </h3>
-              <p className="mb-4">Welcome back! Please enter your details.</p>
-              <button
+              <p style={{ marginTop: '0', marginBottom: '50px'}}>Welcome back! Please enter your details.</p>
+              <div
+                className="d-flex my-5 justify-content-center" // Center the button horizontally
+              >
+                <button
                   type="submit"
                   defaultValue="Log In"
                   className="btn btn-block btn-dark"
+                  id='googlelogin'
                 >
-              <FcGoogle size={30} className="mr-2"/>
-                <span>Login with Google</span>
+                  <FcGoogle size={30} className="mr-2"/>
+                  <span>Login with Google</span>
                 </button>
+              </div>
                 <div
                 className="d-flex my-5"
                 style={{ justifyContent: "space-between" }}

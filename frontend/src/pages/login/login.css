@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap');
+
+
 body {
   background-color: #fff;
 }
@@ -140,5 +143,13 @@ height: 40px
 
 #password {
 height: 40px
+}
+
+#quote {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+#name {
+  font-family:'Times New Roman', Times, serif
 }
 
