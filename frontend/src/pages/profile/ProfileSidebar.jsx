@@ -1,6 +1,25 @@
 import React from 'react'
 
 function Sidebar() {
+
+    const [activeDisplay, setActiveDisplay] = useState('vitals');
+  
+    const handleLinkClick = (display) => {
+      setActiveDisplay(display);
+    };
+  
+    let displayComponent;
+  
+    if (activeDisplay === 'vitals') {
+      displayComponent = <VitalsDisplay flashMessage={flashMessage}/>;
+    } else if (activeDisplay === 'nutrition') {
+      displayComponent = <SavedNutrition />;
+    } else if (activeDisplay === 'symptoms') {
+      displayComponent = <SavedSymptoms />
+    } else if (activeDisplay === 'muscles') {
+      displayComponent = <MuscleSearch />
+    }
+
     return (
         <div className="col-12 col-md-3 p-0">
             <ul className="nav navbar-show flex-column">
