@@ -28,7 +28,7 @@ export default function Navbar({ loggedIn, logUserOut}) {
               <NavLink className="nav-link" to="/">Home</NavLink>
               <NavLink className="nav-link" to="/register">Sign Up</NavLink>
               <NavLink className="nav-link" to="/login">Login</NavLink>
-              <NavLink className="nav-link" to="#">Contact</NavLink>
+              <NavLink className="nav-link" to="">Contact</NavLink>
             </>
           )}
             </nav>
