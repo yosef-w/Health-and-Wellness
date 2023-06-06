@@ -23,6 +23,7 @@ export default function Navbar({ loggedIn, logUserOut}) {
               <NavLink className="nav-link" to="/" onClick={() => logUserOut()}>Logout</NavLink>
               <NavLink className="nav-link" to="#">Contact</NavLink>
             </>
+            
           ) : (
             <>
               <NavLink className="nav-link" to="/">Home</NavLink>
