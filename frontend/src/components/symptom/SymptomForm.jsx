@@ -31,8 +31,6 @@ export default function SymptomForm({ flashMessage }) {
   }
 
 
-
-
     return (
         <div>
           <form action="" onSubmit={handleSubmit}>

@@ -5,26 +5,14 @@ export default function SymptomDisplay({ symptomData, flashMessage }) {
     return null;
   }
 
-  const potentialCausesList = symptomData.potentialCauses.map((cause, index) => (
-    <li key={index}>{cause}</li>
-  ));
-
-  const topSymptoms = {
-    symptom1: symptomData.potentialCauses[0],
-    symptom2: symptomData.potentialCauses[1],
-    symptom3: symptomData.potentialCauses[2]
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
+  const handleSubmit = async (cause) => {
     try {
       const response = await fetch("http://127.0.0.1:5000/symptom/info", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(topSymptoms),
+        body: JSON.stringify(cause),
       });
 
       if (!response.ok) {
@@ -40,35 +28,39 @@ export default function SymptomDisplay({ symptomData, flashMessage }) {
     }
   };
 
-  return (
-    <div className='container mt-5'style={{ marginBottom: "100px"}}>
-      <div className='row justify-content-center'>
-        <div className='col-lg-8'>
-          <div className='card text-center'>
-            <div className='card-body'>
-              <h5 className='card-title'>Potential Causes:</h5>
-              <ol style={{listStyleType: 'none', paddingInlineStart: '0px'}}>{potentialCausesList}</ol>
-              <div className='row justify-content-center m-0'>
-                <div className='col-lg-4' >
-                  <button className='btn btn-danger w-100' onClick={(event) => { event.preventDefault(); }}>
-                    Not Likely
-                  </button>
-                </div>
-                <div className='col-lg-4'>
-                  <button className='btn btn-success w-100' onClick={handleSubmit}>
-                    Save to Profile
-                  </button>
-                </div>
-                <div className='col-lg-4'>
-                  <button className='btn btn-primary w-100' onClick={(event) => { event.preventDefault(); }}>
-                    More Info
-                  </button>
-                </div>
-              </div>
+  const symptomCards = symptomData.potentialCauses.map((cause, index) => (
+    <div className='col-lg-8 my-3' key={index}>
+      <div className='card text-center'>
+        <div className='card-body'>
+          <div className="d-flex align-items-center justify-content-between">
+            <p className="symptom-text" style={{ fontSize: '18px' }}>{cause}</p>
+            <div>
+              <button className='btn btn-danger' onClick={(event) => { event.preventDefault(); }}>
+                <span role="img" aria-label="Remove">❌</span>
+              </button>
+              <button className='btn btn-success' onClick={() => handleSubmit(cause)}>
+                <span role="img" aria-label="Save">✅</span>
+              </button>
+              <button className='btn btn-primary info-button' onClick={(event) => { event.preventDefault(); }}>
+                <span role="img" aria-label="More Info" style={{ color: 'blue' }}>❓</span>
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
+  ));
+
+  return (
+    <div className='container mt-5' style={{ marginBottom: "100px" }}>
+      <div className='row justify-content-center'>
+        <div className='col-lg-8'>
+          <h2 className='text-center mb-4'>Potential Symptoms</h2>
+        </div>
+        <div className='col-lg-8'>
+          {symptomCards}
+        </div>
+      </div>
+    </div>
   );
-  }  
+}

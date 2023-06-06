@@ -54,7 +54,7 @@ export default function Symptom({ flashMessage }) {
                 type="text"
                 name="symptom"
                 className="form-control"
-                placeholder="Enter your ingredients..."
+                placeholder="Enter your symptoms..."
               />
               <div className="text-center">
                 <button
