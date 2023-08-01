@@ -22,3 +22,9 @@ input {
 #spacer{
     margin-bottom: 500px;
 }
+
+#submit {
+    background-color: #222;
+    color: white;
+    border: none;
+}
