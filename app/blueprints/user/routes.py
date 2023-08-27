@@ -14,6 +14,7 @@ def create_user():
     # Validate that all of the required fields are present
     required_fields = ['username', 'email', 'password']
     missing_fields = []
+    print(data)
     for field in required_fields:
         if field not in data:
             missing_fields.append(field)
@@ -23,6 +24,7 @@ def create_user():
     username = data.get('username')
     email = data.get('email')
     password = data.get('password')
+    print(username, email,)
     # Check to see if there is already a user with that username and/or email
     check_user = db.session.execute(db.select(User).filter((User.username == username) | (User.email == email))).scalars().all()
     if check_user:

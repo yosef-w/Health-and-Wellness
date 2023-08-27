@@ -92,7 +92,7 @@ export default function Vitals({ flashMessage }) {
                 <option value='Active'>Active</option>
               </select>
 
-              <button id='submit' className='btn btn-block btn-outline-dark' type='submit'>
+              <button id='update-info' type='submit'>
                 Submit
               </button>
             </form>

@@ -5,8 +5,8 @@ import RegisterImage from "./RegisterImage";
 
 const Register = () => {
   return (
-    <div class="container-fluid">
-      <div class="row">
+    <div className="container-fluid">
+      <div className="row">
         <RegisterForm />
         <RegisterImage />
       </div>

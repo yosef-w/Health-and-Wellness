@@ -6,62 +6,61 @@ import "./register.css"
 
 export default function Register({ flashMessage }) {
 
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-    const navigate = useNavigate();
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const navigate = useNavigate();
 
 
-    const handleUsernameChange = event =>  {
-        setUsername(event.target.value)};
+  const handleUsernameChange = event =>  {
+      setUsername(event.target.value)};
 
-    const handleEmailChange = event => {
-        setEmail(event.target.value)};
+  const handleEmailChange = event => {
+      setEmail(event.target.value)};
 
-    const handlePasswordChange = event => {
-        setPassword(event.target.value)};
-    
-    const handleConfirmPasswordChange = event => {
-        setConfirmPassword(event.target.value)};
+  const handlePasswordChange = event => {
+      setPassword(event.target.value)};
+  
+  const handleConfirmPasswordChange = event => {
+      setConfirmPassword(event.target.value)};
 
-    const handleRegister = event => {
+      const handleRegister = event => {
         event.preventDefault();
-        console.log(event);
+      
         if (password !== confirmPassword) {
-            flashMessage('Passwords do not match', 'warning');
-        } else{
-            // Make the Post Request to Flask API
-            console.log('Passwords do match! Hooray!!')
-
-            let myHeaders = new Headers();
-            myHeaders.append('Content-Type', 'application/json');
-
-            let formData = JSON.stringify({
-                username: username,
-                email: email,
-                password: password
+          flashMessage('Passwords do not match', 'warning');
+        } else {
+          console.log('Passwords do match! Hooray!!')
+          const userData = {
+            username: username,
+            email: email,
+            password: password
+          };
+          console.log(userData)
+          fetch('http://127.0.0.1:5000/user/register', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+          })
+            .then(response => response.json())
+            .then(data => {
+              if (data.error) {
+                flashMessage(data.error, 'danger');
+              } else {
+                flashMessage(`${data.username} has been created`, 'success');
+                navigate('/vitals');
+              }
             })
-            console.log(formData);
-            // make a post request to the backend
-            fetch('http://127.0.0.1:5000/user/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                  },
-                body: formData
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.error){
-                        flashMessage(data.error, 'danger');
-                    } else {
-                        flashMessage(`${data.username} has been created`, 'success');
-                        navigate('/vitals');
-                    }
-                })
+            .catch(error => {
+              console.error('Error:', error);
+              flashMessage('An error occurred while registering', 'danger');
+            });
         }
-    }
+      };
+      
 
     return (
         <>

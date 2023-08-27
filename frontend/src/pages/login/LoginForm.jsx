@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc"
-// import LoginForm from '../../components/login/LoginForm';
 import LoginImageDesign from '../../components/login/LoginImageDesign';
 import './login.css'
 
@@ -26,7 +25,7 @@ export default function LoginForm({ flashMessage, logUserIn }) {
       const data = await response.json();
       if (response.ok) {
         setLoggedIn(true);
-        navigate('/dashboard');
+        navigate('/');
       } else {
         console.log(data.message);
       }

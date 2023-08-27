@@ -49,6 +49,7 @@ select {
     margin-left: 100px;
 }
 
-submit {
+button #update-info {
     margin: 80px 0px 0px 40px;
+    background-color: green;
 }
