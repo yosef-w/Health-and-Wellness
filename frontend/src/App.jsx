@@ -48,7 +48,7 @@ function logUserOut(){
             { message ? <AlertMessage flashMessage={flashMessage} message={message} category={category} /> : null}
             <Routes >
                 <Route path='/' element={<Home user={user} loggedIn={loggedIn} />} />
-                <Route path='/register' element={<Register flashMessage={flashMessage} />} />
+                <Route path='/register' element={<Register flashMessage={flashMessage} logUserIn={logUserIn}/>} />
                 <Route path='/login' element={<Login flashMessage={flashMessage} logUserIn={logUserIn}/>} />
                 <Route path='/symptom' element={<Symptom flashMessage={flashMessage} loggedIn={loggedIn} />} />
                 <Route path='/nutrition' element={<Nutrition flashMessage={flashMessage} loggedIn={loggedIn} addFood={addFood} foodData = {foodData} />} />

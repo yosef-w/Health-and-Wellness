@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc"
-import LoginImageDesign from '../../components/login/LoginImageDesign';
 import './login.css'
 
 export default function LoginForm({ flashMessage, logUserIn }) {
