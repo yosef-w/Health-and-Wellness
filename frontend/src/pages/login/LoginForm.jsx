@@ -57,10 +57,10 @@ export default function LoginForm({ flashMessage, logUserIn }) {
         <div className="container">
           <div className="row align-items-center justify-content-center">
             <div className="col-md-7">
-              <h3 style={{ fontSize: "35px", fontWeight: "400" }}>
+              <h3 style={{ fontSize: "45px", fontWeight: "400" }}>
                 <strong>Welcome back</strong>
               </h3>
-              <p style={{ marginTop: '0', marginBottom: '50px'}}>Welcome back! Please enter your details.</p>
+              <p style={{ fontSize: "15px", marginTop: '0', marginBottom: '10px'}}>Please enter your details:</p>
               <div
                 className="d-flex my-5 justify-content-center" // Center the button horizontally
               >
