@@ -20,7 +20,7 @@ export default function Options() {
                 <div className="support-square-text" style={{textAlign: "center"}}>SYMPTOMS</div>
               </div>
             </Link>
-            <p id="subtext">Diagnosing symptoms is crucial for maintaining good health by enabling early detection, treating potentially serious medical illnesses, and managing the progression of chronic conditions. Research you symptoms here for potential causes!</p>
+            <p id="subtext">Diagnosing symptoms is crucial for maintaining good health by enabling early detection, treating potentially serious medical illnesses, and managing the progression of chronic conditions. Research your symptoms here for potential causes!</p>
           </div>
           <div className="support-column">
             <Link className="box-link" to="/nutrition">
@@ -29,7 +29,7 @@ export default function Options() {
                 <div id="subtitle" className="support-square-text">NUTRITION</div>
               </div>
             </Link>
-            <p id="subtext">Our bodies are in constant need for growth, repair and optimal functioning. A balanced and nutrient-rich diet can help prevent chronic diseases, boost immunity, and promote overall well-being. Add your ingredients and find healthy recipes! </p>
+            <p id="subtext">Our bodies are in constant need for growth, repair and optimal functioning. A balanced and nutrient-rich diet can help prevent chronic diseases, boost immunity, and promote overall well-being. Add your ingredients and find healthy recipes here! </p>
           </div>
           <div className="support-column">
             <Link className="box-link" to="#">
