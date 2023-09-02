@@ -46,7 +46,6 @@ export default function NutritionDisplay({ responseData, flashMessage }) {
     }
   };
 
-
   return (
     <div className="d-flex justify-content-center">
       {responseData.hits.slice(0, 3).map((hit, index) => (
@@ -66,13 +65,13 @@ export default function NutritionDisplay({ responseData, flashMessage }) {
             <li className="list-group-item">Fats: {Math.round(hit.recipe.totalNutrients.FAT.quantity)}g</li>
           </ul>
           <div className="card-body">
-            <a href="#" className="card-link">
+            <button className="btn btn-secondary" onClick={() => {/* Handle Skip */}}>
               Skip
-            </a>
-            <a href="#" className="card-link" onClick={(e) => handleSubmit(e, index)}>
+            </button>
+            <button className="btn btn-primary" onClick={(e) => handleSubmit(e, index)}>
               Save
-            </a>
-            <a href={hit.recipe.url} className="card-link">
+            </button>
+            <a href={hit.recipe.url} className="btn btn-link">
               Recipe
             </a>
           </div>
